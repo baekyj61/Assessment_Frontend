@@ -1,0 +1,28 @@
+<!-- <h3>FINBACK670 Takehome</h3> -->
+<mat-toolbar>
+  <span>FINBACK670 Takehome</span>
+</mat-toolbar>
+<div class="centered">
+  <div id = "topInput" [formGroup]="topForm">
+    <mat-form-field>
+      <mat-label>New Post</mat-label>
+      <input matInput formControlName="postInput" required/>
+      <mat-error *ngIf="postInput.invalid">{{getErrorMessage("Post")}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="submitButton" color="primary" (click)="submit()" [disabled]="topForm.invalid">Submit Task</button>
+  </div>
+</div>
+<div class="centered2">
+  <mat-card id="postCard" *ngFor="let eachPost of posts;" [class.mat-elevation-z10]="true">
+    <mat-card-header>
+      <mat-card-title>{{eachPost.textField}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-raised-button class="submitButton" color="primary" (click)="like(eachPost)">Like {{eachPost.likes}}</button>
+      <button mat-raised-button class="submitButton" color="warn" (click)="delete(eachPost)">Delete</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="spinner-container" *ngIf="loading">
+  <mat-progress-spinner [diameter]="150" [strokeWidth]="10" mode="indeterminate"></mat-progress-spinner>
+</div>
