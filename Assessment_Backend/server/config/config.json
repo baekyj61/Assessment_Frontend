@@ -1,0 +1,35 @@
+{
+  "development": {
+    "username": "jbaek",
+    "password": "1234",
+    "database": "finback670_assessment",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432,
+    "operatorsAliases": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  },
+  "test": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "finback670_assessment",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432,
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "finback670_assessment",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432,
+    "operatorsAliases": false
+  }
+}
