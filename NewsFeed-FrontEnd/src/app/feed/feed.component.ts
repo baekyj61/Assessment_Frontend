@@ -20,20 +20,20 @@ export class FeedComponent implements OnInit {
   posts = [];
 
   ngOnInit() {
-    this.getPosts();
+    this.getPosts(); // Get the list of existing posts in the DB
   }
 
+  // Get All posts in the DB
   getPosts() {
     this.loading = true;
     this.httpclientService.getPostModels().subscribe(posts => {
-      console.log(posts);
       this.posts = posts;
       this.loading = false;
     });
   }
 
+  // Increment Like number for requested post.
   like(thePost) {
-    
     this.httpclientService.updatePostModel(thePost).subscribe(data => {
       if (data.message == "Success") {
         this.getPosts();
@@ -43,6 +43,7 @@ export class FeedComponent implements OnInit {
     });
   }
 
+  // Remove the requested post.
   delete(thePost) {
     this.httpclientService.deletePostModel(thePost).subscribe(data => {
       if (data.message == "Success") {
@@ -53,6 +54,7 @@ export class FeedComponent implements OnInit {
     });
   }
 
+  // Create a new post with requested details
   submit() {
     let pm = new PostModel();
     pm.textField = this.postInput.value;
@@ -67,6 +69,7 @@ export class FeedComponent implements OnInit {
     });
   }
 
+  // Create an error message when the input field is not entered.
   getErrorMessage(err) {
     if (err == "Post") {
       return this.postInput.hasError('required') ? err + 'Field is Mandatory' : '';

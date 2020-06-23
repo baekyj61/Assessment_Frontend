@@ -24,7 +24,7 @@ mat-toolbar {
     position: absolute;
     justify-content: center;
     top: 30%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
 }
 
